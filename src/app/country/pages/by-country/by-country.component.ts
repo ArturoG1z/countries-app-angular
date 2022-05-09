@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-by-country',
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ByCountryComponent implements OnInit {
   term = '';
-  constructor() { }
+  constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
   }
 
   search() {
     console.log(this.term);
-    // private apiUrl: string = https://restcountries.com/v3.1/name/
+    this.countryService.searchCountry(this.term).subscribe(data => {
+      console.log(data);
+    });
   }
 }
