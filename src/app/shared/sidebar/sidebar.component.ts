@@ -4,7 +4,7 @@ import { debounceTime, Subject, Subscription } from 'rxjs';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
   private rxjsSimulator: Subject<number> = new Subject();
@@ -14,27 +14,28 @@ export class SidebarComponent implements OnInit {
     this.subscription.add(
       // Here you can set your debounce time
       this.rxjsSimulator.pipe(debounceTime(70)).subscribe(() => {
-          this.triggerHideNav();
-        }
-      )
+        this.triggerHideNav();
+      })
     );
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   triggerHideNav(): void {
     this.elRef.nativeElement.classList.remove('active');
   }
-  
+
   hideNav(): void {
     if (this.elRef.nativeElement.visibility === 'visible') return;
     this.rxjsSimulator.next(1);
   }
 
-  
   toggleNav(): void {
     if (this.elRef.nativeElement.visibility === 'visible') return;
     this.elRef.nativeElement.classList.toggle('active');
+  }
+  
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
