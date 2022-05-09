@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  background-color: rgb(51, 49, 49);
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.sidebar-dark {
+  background-color: rgb(31, 31, 31);
+  width: 22%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.menu-item-dark {
+  color: #fff;
+  background-color: rgb(32, 32, 32);
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(44, 44, 44);
+  }
+  &.active-item {
+    background-color: rgb(38, 36, 56);
+  }
+}
