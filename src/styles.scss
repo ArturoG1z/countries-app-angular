@@ -20,9 +20,11 @@ html, body {
   background-color: rgb(32, 32, 32);
   cursor: pointer;
   &:hover {
-    background-color: rgb(44, 44, 44);
+    background-color: #262438;
   }
   &.active-item {
-    background-color: rgb(38, 36, 56);
+    background-color: #fff;
+    color: #262438;
+    font-weight: bold;
   }
 }
