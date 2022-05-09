@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./by-country.component.scss']
 })
 export class ByCountryComponent implements OnInit {
-
+  term = '';
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  search() {
+    console.log(this.term);
+    // private apiUrl: string = https://restcountries.com/v3.1/name/
+  }
 }

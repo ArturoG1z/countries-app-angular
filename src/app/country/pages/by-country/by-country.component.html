@@ -1,1 +1,47 @@
-<p>by-country works!</p>
+<h2>By Country</h2>
+<hr />
+<div class="row">
+  <div class="col">
+    <form autocomplete="off" (ngSubmit)="search()">
+      <input
+        type="text"
+        name="term"
+        id="term"
+        placeholder="Search country"
+        class="form-control"
+        [(ngModel)]="term"
+      />
+    </form>
+  </div>
+</div>
+<hr />
+<div class="alert alert-danger">
+  <strong>Error!</strong> No country found with the term: '<strong>{{ term }}</strong>'
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table table-hover table-dark rounded">
+      <thead>
+        <tr>
+          <th class="text-center">#</th>
+          <th class="text-center">Flag</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Population</th>
+          <th class="text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>flag</td>
+          <td>name</td>
+          <td>223</td>
+          <td>
+            <a href="/country/cri">See...</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

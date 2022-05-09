@@ -17,6 +17,14 @@ body {
   transition: all 0.2s ease;
 }
 
+.main-content {
+  padding: 3rem;
+}
+
+table {
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 992px) {
   .sidebar-dark {
     width: 35%;
@@ -47,5 +55,6 @@ body {
 
   .main-content {
     margin-top: 3rem;
+    padding: 1rem;
   }
 }
