@@ -1,33 +1,9 @@
 <div class="d-flex">
-  <div class="sidebar-dark container py-5 ps-4 pe-0">
-    <h2 class="pe-3">Searches</h2>
-    <hr class="me-3" />
-    <ul class="list-group">
-      <li
-        class="list-group-item menu-item-dark"
-        routerLink=""
-        routerLinkActive="active-item"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        Search country
-      </li>
-      <li
-        class="list-group-item menu-item-dark"
-        routerLink="region"
-        routerLinkActive="active-item"
-      >
-        By region
-      </li>
-      <li
-        class="list-group-item menu-item-dark"
-        routerLink="capital"
-        routerLinkActive="active-item"
-      >
-        By capital
-      </li>
-    </ul>
-  </div>
-  <div class="container p-5">
+  <app-sidebar
+    class="sidebar-dark container py-5 ps-4 pe-0"
+    id="sidebar"
+  ></app-sidebar>
+  <div class="w-100 p-5 mh-100vh main-content">
     <router-outlet></router-outlet>
   </div>
 </div>

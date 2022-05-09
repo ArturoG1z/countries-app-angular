@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private elRef: ElementRef) { }
 
   ngOnInit(): void {
   }
 
+  hideNav(): void {
+    if (this.elRef.nativeElement.visibility === 'visible') return;
+    this.elRef.nativeElement.classList.remove('active');
+  }
+
+  toggleNav(): void {
+    if (this.elRef.nativeElement.visibility === 'visible') return;
+    this.elRef.nativeElement.classList.toggle('active');
+  }
 }

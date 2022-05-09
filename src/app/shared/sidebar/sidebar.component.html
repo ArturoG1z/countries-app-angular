@@ -1,1 +1,36 @@
-<p>sidebar works!</p>
+<div id="top-nav">
+  <button id="show-nav" (click)="toggleNav()">
+    <i class="fas fa-bars"></i>
+  </button>
+  <h2>
+    Searches
+  </h2>
+</div>
+<hr class="me-3" />
+<div class="list-group">
+  <a
+    class="list-group-item menu-item-dark"
+    routerLink=""
+    routerLinkActive="active-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    (click)="hideNav()"
+  >
+    Search country
+  </a>
+  <a
+    class="list-group-item menu-item-dark"
+    routerLink="region"
+    routerLinkActive="active-item"
+    (click)="hideNav()"
+  >
+    By region
+  </a>
+  <a
+    class="list-group-item menu-item-dark"
+    routerLink="capital"
+    routerLinkActive="active-item"
+    (click)="hideNav()"
+  >
+    By capital
+  </a>
+</div>

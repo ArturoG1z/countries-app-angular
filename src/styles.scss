@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
+html,
+body {
   background-color: rgb(51, 49, 49);
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
 }
 
@@ -13,6 +14,7 @@ html, body {
   height: 100%;
   min-height: 100vh;
   margin: 0;
+  transition: all 0.2s ease;
 }
 
 .menu-item-dark {
@@ -20,11 +22,84 @@ html, body {
   background-color: rgb(32, 32, 32);
   cursor: pointer;
   &:hover {
-    background-color: #262438;
+    background-color: #444444;
+    color: #fff;
   }
   &.active-item {
     background-color: #fff;
     color: #262438;
     font-weight: bold;
+  }
+}
+
+#show-nav {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .sidebar-dark {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .mh-100vh {
+    min-height: 200vh;
+  }
+
+  .sidebar-dark {
+    visibility: hidden;
+    position: fixed;
+    width: 0%;
+    .menu-item-dark {
+      display: none;
+    }
+    &.active {
+      visibility: visible;
+      width: 80%;
+      transform: translateX(0);
+      .menu-item-dark {
+        display: block;
+      }
+    }
+  }
+
+  .main-content {
+    margin-top: 3rem;
+  }
+
+  #top-nav {
+    visibility: visible;
+    position: fixed;
+    text-align: center;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: rgb(32, 32, 32);
+    padding-top: 10px;
+  }
+
+  #show-nav {
+    display: block;
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    left: 0;
+    font-size: larger;
+    color: #fff;
+    cursor: pointer;
+    padding-left: 1rem;
+    height: 100%;
+    border: none;
+    
+    &:active {
+      color: rgb(79, 75, 75);
+    }
   }
 }
