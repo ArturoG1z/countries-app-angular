@@ -31,6 +31,7 @@ export class CountryInputComponent implements OnInit, OnDestroy {
   }
 
   search(): void {
+    this.term = this.term.trim();
     this.onEnter.emit(this.term);
   }
 

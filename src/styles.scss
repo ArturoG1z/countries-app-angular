@@ -54,6 +54,7 @@ table {
     &.active {
       visibility: visible;
       width: 80%;
+      z-index: 999;
       transform: translateX(0);
       .menu-item-dark {
         display: block;
