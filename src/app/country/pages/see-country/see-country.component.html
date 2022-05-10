@@ -1,1 +1,80 @@
-<p>see-country works!</p>
+<app-loader
+  loader="assets/svg/puff.svg"
+  [show]="!country"
+  customWidth="20"
+></app-loader>
+<main *ngIf="country">
+  <div class="row">
+    <div class="col-12">
+      <h1>
+        Country: <small>{{ country.name.common }}</small>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h3>Flag</h3>
+      <img
+        [src]="country.flags.png"
+        [alt]="country.flag"
+        class="img-thumbnail"
+      />
+    </div>
+    <div class="col">
+      <h3>Info</h3>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+          <strong>Population</strong> {{ country.population }}
+        </li>
+        <li class="list-group-item list-group-item-dark">
+          <strong>Region</strong> {{ country.region }}
+        </li>
+        <li class="list-group-item list-group-item-dark">
+          <strong>Capital</strong> {{ country.capital }}
+        </li>
+        <li class="list-group-item list-group-item-dark">
+          <strong>Numeric code</strong> {{ country.ccn3 }}
+        </li>
+        <li class="list-group-item list-group-item-dark">
+          <strong>Alpha code</strong> {{ country.cca3 }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr />
+  <h3>Translates</h3>
+  <div class="row">
+    <div class="col">
+      <span class="badge bg-info text-dark me-1">
+        cym: {{ country.translations["cym"].common }}</span
+      >
+      <span class="badge bg-info text-dark me-1">
+        spa: {{ country.translations["spa"].common }}</span
+      >
+      <span class="badge bg-info text-dark me-1">
+        fra: {{ country.translations["fra"].common }}</span
+      >
+      <span class="badge bg-info text-dark me-1">
+        ita: {{ country.translations["ita"].common }}</span
+      >
+      <span class="badge bg-info text-dark me-1">
+        pol: {{ country.translations["pol"].common }}</span
+      >
+      <span class="badge bg-info text-dark me-1">
+        rus: {{ country.translations["rus"].common }}</span
+      >
+      <span class="badge bg-info text-dark me-1">
+        por: {{ country.translations["por"].common }}</span
+      >
+      <span class="badge bg-info text-dark me-1">
+        nld: {{ country.translations["nld"].common }}</span
+      >
+      <span class="badge bg-info text-dark me-1">
+        jpn: {{ country.translations["jpn"].common }}</span
+      >
+      <span class="badge bg-info text-dark me-1">
+        hrv: {{ country.translations["hrv"].common }}</span
+      >
+    </div>
+  </div>
+</main>
