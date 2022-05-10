@@ -2,15 +2,26 @@
 <hr />
 <div class="row">
   <div class="col">
-    <app-country-input [term]="term" (onEnter)="search($event)"></app-country-input>
+    <app-country-input
+      [term]="term"
+      (onEnter)="search($event)"
+      (onDebaunce)="suggest($event)"
+    ></app-country-input>
   </div>
 </div>
 <hr />
 <div class="alert alert-danger" *ngIf="isAnError">
-  <strong>Error!</strong> No country found with the term: '<strong>{{ term }}</strong>'
+  <strong>Error!</strong> No country found with the term: '<strong>{{
+    term
+  }}</strong
+  >'
 </div>
 
-<app-loader loader="assets/svg/puff.svg" [show]="showLoader" customWidth="30"></app-loader>
+<app-loader
+  loader="assets/svg/puff.svg"
+  [show]="showLoader"
+  customWidth="30"
+></app-loader>
 
 <div class="row" *ngIf="countries.length > 0">
   <div class="col">

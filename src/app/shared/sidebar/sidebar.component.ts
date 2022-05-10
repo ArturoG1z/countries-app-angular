@@ -11,15 +11,14 @@ export class SidebarComponent implements OnInit {
   private subscription: Subscription = new Subscription();
 
   constructor(private elRef: ElementRef) {
-    this.subscription.add(
-      // Here you can set your debounce time
-      this.rxjsSimulator.pipe(debounceTime(70)).subscribe(() => {
-        this.triggerHideNav();
-      })
-    );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Here you can set your debounce time
+    this.subscription = this.rxjsSimulator.pipe(debounceTime(70)).subscribe(() => {
+      this.triggerHideNav();
+    })
+  }
 
   triggerHideNav(): void {
     this.elRef.nativeElement.classList.remove('active');

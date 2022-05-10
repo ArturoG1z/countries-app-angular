@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ByCountryComponent } from './by-country.component';
+import ByCountryComponent from './by-country.component';
 
 describe('ByCountryComponent', () => {
   let component: ByCountryComponent;
