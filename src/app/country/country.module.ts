@@ -6,6 +6,9 @@ import { ByRegionComponent } from './pages/by-region/by-region.component';
 import { SeeCountryComponent } from './pages/see-country/see-country.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CountryTableComponent } from './components/country-table/country-table.component';
+import { CountryInputComponent } from './components/country-input/country-input.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +16,8 @@ import { RouterModule } from '@angular/router';
     ByCountryComponent,
     ByRegionComponent,
     SeeCountryComponent,
+    CountryTableComponent,
+    CountryInputComponent,
   ],
   exports: [
     ByCapitalComponent,
@@ -23,7 +28,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule, 
     FormsModule, 
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
 })
 export class CountryModule {}
