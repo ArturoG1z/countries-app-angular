@@ -3,7 +3,7 @@
     type="text"
     name="term"
     id="term"
-    placeholder="Search country"
+    [placeholder]="placeholder"
     class="form-control"
     (input)="keyPress()"
     [(ngModel)]="term"
