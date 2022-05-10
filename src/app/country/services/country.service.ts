@@ -14,4 +14,8 @@ export class CountryService {
   searchCountry(term: string): Observable<Country[]> {
     return this.http.get<Country[]>(`${this.apiUrl}/name/${term}`); //.pipe(catchError(err => of([])));
   }
+
+  searchCountryByCapital(term: string): Observable<Country[]> {
+    return this.http.get<Country[]>(`${this.apiUrl}/capital/${term}`); //.pipe(catchError(err => of([])));
+  }
 }
