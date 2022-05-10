@@ -24,6 +24,7 @@ export class ByCountryComponent implements OnInit {
     }, err => {
       console.info(err);
       this.isAnError = true;
+      this.countries = [];
     });
   }
 }

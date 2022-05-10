@@ -2,7 +2,7 @@
 
 html,
 body {
-  background-color: rgb(51, 49, 49);
+  background-color: rgb(37, 35, 35);
   color: #fff;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -11,15 +11,21 @@ body {
 .sidebar-dark {
   background-color: rgb(31, 31, 31);
   width: 22%;
-  height: 100%;
   min-height: 100vh;
+  position: fixed;
   margin: 0;
   transition: all 0.2s ease;
 }
 
 .main-content {
   padding: 3rem;
+  margin-left: 22%;
 }
+
+.small-flag {
+  width: 50px;
+}
+
 
 table {
   border-radius: 5px;
@@ -27,7 +33,10 @@ table {
 
 @media screen and (max-width: 992px) {
   .sidebar-dark {
-    width: 35%;
+    width: 31%;
+  }
+  .main-content {
+    margin-left: 31%;
   }
 }
 
@@ -38,7 +47,6 @@ table {
 
   .sidebar-dark {
     visibility: hidden;
-    position: fixed;
     width: 0%;
     .menu-item-dark {
       display: none;
@@ -56,5 +64,6 @@ table {
   .main-content {
     margin-top: 3rem;
     padding: 1rem;
+    margin-left: 0;
   }
 }
