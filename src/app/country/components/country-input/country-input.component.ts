@@ -14,7 +14,7 @@ import { Subject, debounceTime, Subscription } from 'rxjs';
   styleUrls: ['./country-input.component.scss'],
 })
 export class CountryInputComponent implements OnInit, OnDestroy {
-  @Input() term: string = '';
+  term: string = '';
   @Input() placeholder: string = 'Search...';
   @Output() onEnter: EventEmitter<string> = new EventEmitter<string>();
   @Output() onDebaunce: EventEmitter<string> = new EventEmitter<string>();

@@ -4,7 +4,6 @@
   <div class="row">
     <div class="col">
       <app-country-input
-        [term]="term"
         (onEnter)="search($event)"
         (onDebaunce)="suggest($event)"
         placeholder="Search by country"
@@ -14,7 +13,7 @@
   <div class="list-group" *ngIf="showSuggest">
     <a
       class="list-group-item list-group-item-dark nav-link"
-      *ngFor="let country of sugestedCountries"
+      *ngFor="let country of suggestedCountries"
       [routerLink]="['/country', country.cca2]"
     >
       {{ country.name.common }}

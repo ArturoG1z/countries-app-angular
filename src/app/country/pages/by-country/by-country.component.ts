@@ -12,7 +12,7 @@ export class ByCountryComponent implements OnInit, OnDestroy {
   term: string = '';
   isAnError: boolean = false;
   countries: Country[] = [];
-  sugestedCountries: Country[] = [];
+  suggestedCountries: Country[] = [];
   showLoader: boolean = false;
   showSuggest: boolean = false;
   private subscription: Subscription = new Subscription();
@@ -44,12 +44,19 @@ export class ByCountryComponent implements OnInit, OnDestroy {
 
   suggest(term: string): void {
     this.isAnError = false;
+    this.term = term.trim();
     this.showSuggest = true;
     this.countryService
-    .searchCountry(term)
-    .subscribe((countries: Country[]) => {
-        this.sugestedCountries = countries.splice(0, 5);
-      });
+      .searchCountry(this.term)
+      .subscribe({
+        next: ((countries: Country[]) => {
+          this.suggestedCountries = countries.splice(0, 5);
+        }).bind(this),
+        error: ((err: any) => {
+          this.suggestedCountries = [];
+        }).bind(this),
+      }
+      );
   }
 
   ngOnDestroy(): void {
