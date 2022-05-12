@@ -3,7 +3,7 @@
   [show]="!country"
   customWidth="20"
 ></app-loader>
-<main *ngIf="country">
+  <main *ngIf="country" class="animate__animated animate__fadeIn">
   <div class="row">
     <div class="col-12">
       <h1>
@@ -45,35 +45,8 @@
   <h3>Translates</h3>
   <div class="row">
     <div class="col">
-      <span class="badge bg-info text-dark me-1">
-        cym: {{ country.translations["cym"].common }}</span
-      >
-      <span class="badge bg-info text-dark me-1">
-        spa: {{ country.translations["spa"].common }}</span
-      >
-      <span class="badge bg-info text-dark me-1">
-        fra: {{ country.translations["fra"].common }}</span
-      >
-      <span class="badge bg-info text-dark me-1">
-        ita: {{ country.translations["ita"].common }}</span
-      >
-      <span class="badge bg-info text-dark me-1">
-        pol: {{ country.translations["pol"].common }}</span
-      >
-      <span class="badge bg-info text-dark me-1">
-        rus: {{ country.translations["rus"].common }}</span
-      >
-      <span class="badge bg-info text-dark me-1">
-        por: {{ country.translations["por"].common }}</span
-      >
-      <span class="badge bg-info text-dark me-1">
-        nld: {{ country.translations["nld"].common }}</span
-      >
-      <span class="badge bg-info text-dark me-1">
-        jpn: {{ country.translations["jpn"].common }}</span
-      >
-      <span class="badge bg-info text-dark me-1">
-        hrv: {{ country.translations["hrv"].common }}</span
+      <span class="badge bg-info text-dark me-1" *ngFor="let translation of translationsKeys">
+        {{ translation }}: {{ country.translations[translation].common }}</span
       >
     </div>
   </div>

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Country } from '../../interfaces/country.interface';
 import { CountryService } from '../../services/country.service';
-import { Subscription, switchMap, tap } from 'rxjs';
+import { Subscription, } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-see-country',
@@ -14,9 +15,10 @@ export class SeeCountryComponent implements OnInit {
   subParamsActivated: Subscription = new Subscription();
   subCountryService: Subscription = new Subscription();
   showLoader: boolean = false;
+  translationsKeys!: (string) [  ];
   constructor(
     private activatedRoute: ActivatedRoute,
-    private countryService: CountryService
+    private countryService: CountryService,
   ) {}
 
   ngOnInit(): void {
@@ -26,9 +28,14 @@ export class SeeCountryComponent implements OnInit {
         switchMap(({ id }) => this.countryService.getCountryByCode(id)),
         tap(console.log)
       )
-      .subscribe(([country]) => {
-        this.country = country
-        this.showLoader = false;
+      .subscribe({
+          next: ((country: Country) => {
+            this.country = country;
+            this.translationsKeys = Object.keys(country.translations);
+            this.showLoader = false;
+          }).bind(this),
+          error: ((err: any) => {
+          }).bind(this)
       });
     // using switchMap to get and observable from other observable
     // this.activatedRoute.params.subscribe(({id}) => {

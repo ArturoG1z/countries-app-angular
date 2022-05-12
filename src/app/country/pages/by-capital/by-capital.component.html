@@ -1,21 +1,23 @@
-<h2>By Capital</h2>
-<hr />
-<div class="row">
-  <div class="col">
-    <app-country-input
-      [term]="term"
-      (onEnter)="search($event)"
-      (onDebaunce)="suggest($event)"
-      placeholder="Search by capital"
-    ></app-country-input>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>By Capital</h2>
+  <hr />
+  <div class="row">
+    <div class="col">
+      <app-country-input
+        [term]="term"
+        (onEnter)="search($event)"
+        (onDebaunce)="suggest($event)"
+        placeholder="Search by capital"
+      ></app-country-input>
+    </div>
   </div>
 </div>
 <hr />
 <div class="alert alert-danger" *ngIf="isAnError">
-  <strong>Error!</strong> No country found with the term: '<strong>{{
+  <strong>Error!</strong> No country found with the term: "<strong>{{
     term
   }}</strong
-  >'
+  >"
 </div>
 
 <app-loader
