@@ -15,7 +15,6 @@ export class SeeCountryComponent implements OnInit {
   subParamsActivated: Subscription = new Subscription();
   subCountryService: Subscription = new Subscription();
   showLoader: boolean = false;
-  translationsKeys!: (string) [  ];
   constructor(
     private activatedRoute: ActivatedRoute,
     private countryService: CountryService,
@@ -31,7 +30,6 @@ export class SeeCountryComponent implements OnInit {
       .subscribe({
           next: ((country: Country) => {
             this.country = country;
-            this.translationsKeys = Object.keys(country.translations);
             this.showLoader = false;
           }).bind(this),
           error: ((err: any) => {
